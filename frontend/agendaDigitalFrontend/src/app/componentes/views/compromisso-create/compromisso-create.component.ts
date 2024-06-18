@@ -9,7 +9,7 @@ import { CompromissoService } from '../../service/compromisso.service';
   templateUrl: './usuario-create.component.html',
   styleUrls: ['./usuario-create.component.css']
 })
-export class UsuarioCreateComponent implements OnInit {
+export class CompromissoCreateComponent implements OnInit {
 
   compromisso: Compromisso = {}
 

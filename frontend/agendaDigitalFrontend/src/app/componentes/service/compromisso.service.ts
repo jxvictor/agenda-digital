@@ -34,9 +34,14 @@ export class CompromissoService {
     return this.http.delete<void>(url);
   }
 
-  update(compromisso: Compromisso):Observable<void> {
+  /*update(compromisso: Compromisso):Observable<void> {
     const url = `${this.baseUrl}/compromisso/${compromisso.id}`
     return this.http.put<void>(url, compromisso)
+  }*/
+
+  update(id: string, formData: FormData): Observable<Compromisso> {
+    const url = `${this.baseUrl}/compromisso/${id}`;
+    return this.http.put<Compromisso>(url, formData);
   }
 
   mensagem(str: String): void{
