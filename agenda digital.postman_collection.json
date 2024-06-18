@@ -1,0 +1,71 @@
+{
+	"info": {
+		"_postman_id": "ed3e937d-8fea-4507-9ddb-d098efdb4c15",
+		"name": "agenda digital",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12477681"
+	},
+	"item": [
+		{
+			"name": "Compromisso POST",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Reunião de Planejamento\",\r\n    \"inicio\": \"20-06-2024 10:00:00\",\r\n    \"fim\": \"20-06-2024 12:00:00\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/compromisso",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"compromisso"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Compromisso GET",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Reunião de Planejamento\",\r\n    \"inicio\": \"20-06-2024 10:00:00\",\r\n    \"fim\": \"20-06-2024 12:00:00\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/compromisso",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"compromisso"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
