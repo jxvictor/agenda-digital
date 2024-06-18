@@ -19,9 +19,9 @@ public class CompromissoService {
         compromissoRepository.save(compromisso);
     }
 
-    /*public Page<Compromisso> findAll(Pageable pageable){
+    public Page<Compromisso> findAll(Pageable pageable){
         return compromissoRepository.findAll(pageable);
-    }*/
+    }
     public List<Compromisso> obterTodos() {
         return compromissoRepository.findAll();
     }

@@ -3,13 +3,13 @@ package com.AgendaDigital.Controller;
 import com.AgendaDigital.Model.Compromisso;
 import com.AgendaDigital.Service.CompromissoService;
 import jakarta.validation.Valid;
-import org.hibernate.query.Page;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.print.Pageable;
 import java.util.List;
 import java.util.Optional;
 
@@ -45,14 +45,14 @@ public class CompromissoController {
     }
 
     @GetMapping()
-    public ResponseEntity<List<Compromisso>> listarTodos(){
+    public ResponseEntity<org.springframework.data.domain.Page<Compromisso>> listarTodos(Pageable pageable){
         try
         {
-            return new ResponseEntity<>(compromissoService.obterTodos(), HttpStatus.OK);
+            return new ResponseEntity<org.springframework.data.domain.Page<Compromisso>>(compromissoService.findAll(pageable), HttpStatus.OK);
         }
         catch(Exception e)
         {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<Page<Compromisso>>(HttpStatus.BAD_REQUEST);
         }
     }
 
