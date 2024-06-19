@@ -1,5 +1,5 @@
 export class Usuario {
     id?: number;
-    usuario?: String;
-    senha?: String;
+    username?: String;
+    password?: String;
 }

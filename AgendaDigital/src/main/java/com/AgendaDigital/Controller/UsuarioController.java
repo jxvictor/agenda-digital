@@ -21,17 +21,6 @@ public class UsuarioController {
     @Autowired
     UsuarioService usuarioService;
 
-    @PostMapping()
-    public ResponseEntity<Void> cadastrar(@RequestBody @Valid Usuario usuario){
-        try {
-            usuarioService.save(usuario);
-            return ResponseEntity.ok().build();
-        }
-        catch (Exception e) {
-            return ResponseEntity.badRequest().build();
-        }
-    }
-
     @GetMapping("/obterTodos")
     public ResponseEntity<List<Usuario>> obterTodos(){
         try
@@ -71,8 +60,8 @@ public class UsuarioController {
         Optional<Usuario> us = usuarioService.findById(id);
         try
         {
-            usuario.setUsuario(us.get().getUsuario());
-            usuario.setSenha(us.get().getSenha());
+            usuario.setUsername(us.get().getUsername());
+            usuario.setPassword(us.get().getPassword());
             usuarioService.save(usuario);
             return ResponseEntity.ok().build();
         }
