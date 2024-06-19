@@ -1,0 +1,56 @@
+<div class="content">
+
+    <div class="title">
+        <h1>Lista de compromissos cadastrados</h1>
+    </div>
+    
+    <button class="mat-elevation-z8" mat-raised-button color="primary">ADICIONAR COMPROMISSO</button>
+  
+    <div class="mat-elevation-z8 content-table">
+        <table class="table" mat-table [dataSource]="compromissos" matSort>
+  
+            <!-- Position Column -->
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef (click)="sortData('id')" mat-sort-header> ID </th>
+              <td mat-cell *matCellDef="let row"> {{ row.id }} </td>
+            </ng-container>
+            <!-- Name Column -->
+            <ng-container matColumnDef="nome">
+              <th mat-header-cell *matHeaderCellDef (click)="sortData('nome')" mat-sort-header> NOME COMPROMISSO </th>
+              <td mat-cell *matCellDef="let row"> {{ row.nome }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="inicio">
+                <th mat-header-cell *matHeaderCellDef (click)="sortData('inicio')" mat-sort-header> DATA INÍCIO </th>
+                <td mat-cell *matCellDef="let row"> {{ row.inicio }} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="fim">
+                <th mat-header-cell *matHeaderCellDef (click)="sortData('fim')" mat-sort-header> DATA FIM </th>
+                <td mat-cell *matCellDef="let row"> {{ row.fim }} </td>
+              </ng-container>
+  
+  
+              <!-- Symbol Column -->
+            <ng-container matColumnDef="acoes">
+                <th class="mat-header" mat-header-cell *matHeaderCellDef> AÇÕES </th>
+                <td mat-cell *matCellDef="let row">
+                    <a class="edit" routerLink="update/{{ row.id }}">
+                      <i class="material-icons">edit</i>
+                    </a>
+                    <a class="delete" routerLink="delete/{{ row.id }}">
+                      <i class="material-icons">delete</i>
+                    </a>
+                </td>
+              </ng-container>
+  
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+          <mat-paginator [length]="200"
+          [pageSizeOptions]="[10, 20, 30, 40, 50, 100, 200]"
+          (page)="pageEvent = $event; onPaginateChange($event)"
+          aria-label="Select page">
+          </mat-paginator>
+    </div>
+  </div>

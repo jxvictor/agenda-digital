@@ -21,6 +21,17 @@ public class UsuarioController {
     @Autowired
     UsuarioService usuarioService;
 
+    @PostMapping()
+    public ResponseEntity<Void> cadastrar(@RequestBody @Valid Usuario usuario){
+        try {
+            usuarioService.save(usuario);
+            return ResponseEntity.ok().build();
+        }
+        catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
     @GetMapping("/obterTodos")
     public ResponseEntity<List<Usuario>> obterTodos(){
         try
