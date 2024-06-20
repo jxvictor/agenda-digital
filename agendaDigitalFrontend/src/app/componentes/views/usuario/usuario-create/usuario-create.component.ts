@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Usuario } from 'src/app/componentes/model/Usuario';
+import { AuthService } from 'src/app/componentes/service/auth.service';
 import { UsuarioService } from 'src/app/componentes/service/usuario.service';
 
 @Component({
@@ -9,34 +10,30 @@ import { UsuarioService } from 'src/app/componentes/service/usuario.service';
   styleUrls: ['./usuario-create.component.css']
 })
 export class UsuarioCreateComponent {
+  form: any = {
+    username: null,
+    email: null,
+    password: null
+  };
+  isSuccessful = false;
+  isSignUpFailed = false;
+  errorMessage = '';
 
-  usuario = new Usuario();
+  constructor(private authService: AuthService) { }
 
-  //json
-  usuarios: Usuario[] = [];
+  onSubmit(): void {
+    const { username, email, password } = this.form;
 
-  constructor(
-    private service: UsuarioService,
-    private router: Router
-  ){}
-
-  ngOnInit(): void {
+    this.authService.register(username, password).subscribe({
+      next: data => {
+        console.log(data);
+        this.isSuccessful = true;
+        this.isSignUpFailed = false;
+      },
+      error: err => {
+        this.errorMessage = err.error.message;
+        this.isSignUpFailed = true;
+      }
+    });
   }
-
-  cadastrar():void{
-    this.service.cadastrar(this.usuario).subscribe((resposta: any) => {
-      console.log(resposta);
-      this.router.navigate([''])
-      this.service.mensagem('Usuário cadastrado com sucesso!');
-    }, (error: any) => {
-      console.log(error);
-      this.service.mensagem("Erro ao criar Usuário! Tente mais tarde!");
-    })
-  }
-
-  cancel(): void {
-    this.router.navigate([''])
-    this.service.mensagem('Você cancelou o cadastro!');
-  }
-
 }

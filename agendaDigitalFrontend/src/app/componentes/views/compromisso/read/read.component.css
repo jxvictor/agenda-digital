@@ -69,4 +69,11 @@
       display: flex;
     }
   }
-  
+  /* Exemplo de CSS para ajustar o estilo do datepicker */
+.mat-form-field {
+  width: 100%;
+}
+
+.mat-input-element {
+  padding: 0;
+}

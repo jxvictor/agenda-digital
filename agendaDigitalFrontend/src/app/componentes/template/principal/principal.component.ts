@@ -45,7 +45,7 @@ export class PrincipalComponent implements OnInit {
         this.isLoggedIn = true;
         this.roles = this.storageService.getUser().roles;
         //this.reloadPage();
-        this.router.navigate(["/home"])
+        this.router.navigate(["/compromissos"])
       },
       error: err => {
         this.errorMessage = err.error.message;

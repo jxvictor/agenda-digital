@@ -9,6 +9,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -39,8 +40,7 @@ import { ReadComponent } from './componentes/views/compromisso/read/read.compone
     MatTableModule,
     MatSnackBarModule,
     MatFormFieldModule,
-    MatInputModule 
-
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
