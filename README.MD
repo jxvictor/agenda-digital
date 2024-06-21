@@ -18,6 +18,7 @@ A agenda digital consiste em uma agenda em que um usuário pode se cadastrar e f
 - MySQL
 - Dependências: jsonwebtoken, lombok, mysql, validation, data jpa.
 - Angular
+- Bootstrap
 
 ## Angular
 - ng new agendaDigitalFrontend
