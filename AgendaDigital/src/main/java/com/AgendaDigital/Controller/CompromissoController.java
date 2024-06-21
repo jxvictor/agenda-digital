@@ -62,6 +62,12 @@ public class CompromissoController {
         }
     }
 
+    @GetMapping("/usuario/{usuarioId}")
+    public ResponseEntity<Page<Compromisso>> getCompromissosByUsuario(@PathVariable Long usuarioId, Pageable pageable) {
+        Page<Compromisso> compromissos = compromissoService.findByUsuarioId(usuarioId, pageable);
+        return ResponseEntity.ok(compromissos);
+    }
+
 
     @GetMapping("/{id}")
     public ResponseEntity<Optional<Compromisso>> obterPorId(@PathVariable Long id){

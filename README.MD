@@ -11,7 +11,6 @@ A agenda digital consiste em uma agenda em que um usuário pode se cadastrar e f
 
 ## Restando implementar
 - Visual
-- Corrigir visualização de compromissos (corrigir o usuário visualizar apenas os 'seus' compromissos) 
 
 ## Tecnologias utilizadas
 - Java 20

@@ -53,4 +53,9 @@ export class CompromissoService {
     const baseUrl = `${this.url}/${compromisso.id}`
     return this.http.put<void>(baseUrl, compromisso)
   }
+
+  getCompromissosByUsuario(usuarioId: number, page: number, size: number, sort: string = ''): Observable<any> {
+    const url = `${this.url}/usuario/${usuarioId}?page=${page}&size=${size}&sort=${sort}`;
+    return this.http.get(url);
+  }
 }

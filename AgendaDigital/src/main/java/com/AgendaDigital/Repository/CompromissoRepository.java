@@ -10,4 +10,5 @@ import java.util.Optional;
 
 @Repository
 public interface CompromissoRepository extends JpaRepository<Compromisso, Long> {
+    Page<Compromisso> findByUsuarioId(Long usuarioId, Pageable pageable);
 }

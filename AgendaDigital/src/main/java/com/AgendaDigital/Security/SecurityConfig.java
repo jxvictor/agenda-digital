@@ -77,6 +77,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/api/auth/signup").permitAll()
                         .requestMatchers("/api/usuario/**").permitAll()//hasRole("ADMIN")
                         .requestMatchers(HttpMethod.GET, "/api/compromisso").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/compromisso/usuario/{id}").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/compromisso").permitAll()
                         .requestMatchers(HttpMethod.DELETE, "/api/compromisso/{id}").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/compromisso/{id}").permitAll()

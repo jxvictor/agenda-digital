@@ -19,6 +19,7 @@ export class ReadComponent {
   compromissos: Array<Compromisso> = [];
   private page!: Page;
   pageEvent!: PageEvent;
+  usuarioId!: number;
 
   displayedColumns: string[] = ['id', 'nome', 'inicio', 'fim', 'acoes'];
 
@@ -29,7 +30,14 @@ export class ReadComponent {
   ){}
 
   ngOnInit(){
-    this.pageCompromissos(0, 10);
+
+    const user = this.storageService.getUser();
+    if (user && user.id) {
+      this.usuarioId = user.id;
+      this.pageCompromissos(0, 10);
+    } else {
+      this.router.navigate(['']);
+    }
     
     this.pageEvent = {
       length: 0,
@@ -39,12 +47,19 @@ export class ReadComponent {
     };
   }
 
-  pageCompromissos(page: number, size: number, sort: string = '') {
+  /*pageCompromissos(page: number, size: number, sort: string = '') {
     this.service.findCompromissoPage(page, size, sort).subscribe(resposta => {
       this.page = resposta;
       this.compromissos = this.page.content;
     });
-  }
+  }*/
+ 
+    pageCompromissos(page: number, size: number, sort: string = ''): void {
+      this.service.getCompromissosByUsuario(this.usuarioId, page, size, sort).subscribe(resposta => {
+        this.page = resposta;
+        this.compromissos = this.page.content;
+      });
+    }
   
   onPaginateChange(event: PageEvent){
     let page = event.pageIndex;

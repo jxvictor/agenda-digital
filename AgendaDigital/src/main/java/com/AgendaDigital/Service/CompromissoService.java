@@ -33,4 +33,8 @@ public class CompromissoService {
     public void remover(Long id) {
         compromissoRepository.deleteById(id);
     }
+
+    public Page<Compromisso> findByUsuarioId(Long usuarioId, Pageable pageable) {
+        return compromissoRepository.findByUsuarioId(usuarioId, pageable);
+    }
 }
