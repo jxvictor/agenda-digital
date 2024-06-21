@@ -1,3 +1,16 @@
-<a (click)="deslogar()"class="logout" mat-list-item>
-    Logout
-</a>
+<header>
+    <nav class="nav-bar">
+        <div class="logo">
+            <h1>Agenda</h1>
+        </div>
+        <div class="nav-list" *ngIf="isLoggedIn">
+            <ul>
+                <li class="nav-item"><a (click)="routerHome()" class="nav-link">Início</a></li>
+                <li class="nav-item"><a (click)="routerCompromissos()" class="nav-link">Compromissos</a></li>
+            </ul>
+        </div>
+        <div class="logout-button" *ngIf="isLoggedIn">
+            <button (click)="deslogar()"class="btn bg-transparent btn-outline-secondary"><a>Sair</a></button>
+        </div>
+    </nav>
+</header>

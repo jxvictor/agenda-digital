@@ -86,5 +86,6 @@ export class ReadComponent {
   create(){
     this.router.navigate(['cadastrar/compromisso'])
   }
+  
 
 }

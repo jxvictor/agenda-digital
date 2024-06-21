@@ -18,6 +18,9 @@ form {
     width: 100%;
     text-align: start;
   }
+  input{
+    margin-bottom: 15px;
+  }
   
   button {
     margin-right: 0.5rem;

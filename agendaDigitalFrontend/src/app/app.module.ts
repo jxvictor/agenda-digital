@@ -8,6 +8,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import {MatCardModule} from '@angular/material/card';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -22,6 +23,7 @@ import { ReadComponent } from './componentes/views/compromisso/read/read.compone
 import { DeleteComponent } from './componentes/views/compromisso/delete/delete.component';
 import { UpdateComponent } from './componentes/views/compromisso/update/update.component';
 import { HeaderComponent } from './componentes/template/header/header.component';
+import { HomeComponent } from './componentes/views/home/home/home.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { HeaderComponent } from './componentes/template/header/header.component'
     ReadComponent,
     DeleteComponent,
     UpdateComponent,
-    HeaderComponent
+    HeaderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,8 @@ import { HeaderComponent } from './componentes/template/header/header.component'
     MatTableModule,
     MatSnackBarModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

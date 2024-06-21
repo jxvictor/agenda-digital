@@ -45,11 +45,13 @@ export class CreateComponent {
         .subscribe(retorno => {
           this.compromissos.push(retorno);
           this.compromisso = new Compromisso();
+          this.router.navigate(['compromissos'])
           alert('Compromisso cadastrado com sucesso!');
         });
     } else {
       alert('Por favor, preencha as datas de início e fim.');
     }
+    this.router.navigate(['compromissos'])
   }
 
   cancelar():void{

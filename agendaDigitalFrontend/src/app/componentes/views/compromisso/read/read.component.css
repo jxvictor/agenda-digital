@@ -1,79 +1,62 @@
 .content {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin: 0 auto;
-    padding: 1rem;
-  }
-  
-  .title {
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-  
-  .title h1 {
-    font-size: 2rem;
-  }
-  
-  .table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  th, td {
-    text-align: left;
-    padding: 8px;
-    border: 1px solid #ddd;
-  }
-  
-  tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  .delete {
-    color: rgba(255, 0, 0, 0.856);
-  }
-  
-  .mat-header {
-    width: 5rem;
-  }
-  
-  button {
-    margin-bottom: 0.6rem;
-    width: 180px;
-    font-size: 10pt;
-  }
-  
-  @media (max-width: 768px) {
-    .content {
-      flex-direction: column;
-      padding: 10px;
-      font-size: 14px;
-    }
-  
-    .mat-elevation-z8 {
-      margin: 5px;
-    }
-  
-    .table {
-      display: flex;
-      flex-direction: column;
-    }
-  
-    th, td {
-      padding: 5px;
-      border: 0;
-    }
-  
-    .paginator {
-      display: flex;
-    }
-  }
-  /* Exemplo de CSS para ajustar o estilo do datepicker */
-.mat-form-field {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza o conteúdo horizontalmente */
   width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
 }
 
-.mat-input-element {
-  padding: 0;
+.title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap; /* Permite que os cards quebrem para a próxima linha quando não houver espaço suficiente */
+  justify-content: center; /* Centraliza os cards horizontalmente */
+  gap: 20px; /* Espaçamento entre os cards */
+}
+
+.example-card {
+  width: 400px; /* Largura inicial dos cards */
+  border-radius: 15px;
+  background-color: rgb(230, 230, 231);
+}
+
+button{
+  margin-bottom: 15px;
+  margin-left: 5px;
+}
+
+.example-card:hover{
+  background-color: #24252a;
+  /*background-color: rgb(49, 84, 243);*/
+  color: white;
+  cursor: pointer;
+  transform: scale(1.03);
+  transition: all 0.5s ease;
+}
+
+.example-card mat-card-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mat-card-actions {
+  justify-content: flex-end; /* Alinha as ações dos cards à direita */
+}
+
+@media (max-width: 768px) {
+  .example-card {
+    width: calc(50% - 20px); /* Cards ocupam 50% da largura da tela em telas menores que 768px */
+  }
+}
+
+@media (max-width: 480px) {
+  .example-card {
+    width: calc(100% - 20px); /* Cards ocupam 100% da largura da tela em telas muito pequenas */
+  }
 }

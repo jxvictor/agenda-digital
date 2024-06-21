@@ -8,6 +8,7 @@ import { UsuarioNaoAutenticadoGuard } from './componentes/views/guard/usuario-na
 import { AuthGuard } from './componentes/views/guard/auth.guard';
 import { DeleteComponent } from './componentes/views/compromisso/delete/delete.component';
 import { UpdateComponent } from './componentes/views/compromisso/update/update.component';
+import { HomeComponent } from './componentes/views/home/home/home.component';
 
 const routes: Routes = [
   { 
@@ -17,7 +18,9 @@ const routes: Routes = [
     path: 'inicio',
     redirectTo: 'http://localhost:4200',
     pathMatch: 'full'
-    
+  },
+  { 
+    path: 'home', component: HomeComponent
   },
   {
     path: 'login',

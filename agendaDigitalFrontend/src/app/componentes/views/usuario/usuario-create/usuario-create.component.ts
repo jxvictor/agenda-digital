@@ -19,7 +19,9 @@ export class UsuarioCreateComponent {
   isSignUpFailed = false;
   errorMessage = '';
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,
+    private router: Router
+  ) { }
 
   onSubmit(): void {
     const { username, email, password } = this.form;

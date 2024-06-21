@@ -23,14 +23,14 @@ export class PrincipalComponent implements OnInit {
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
-  roles: string[] = [];
+  usuarioData: string[] = [];
 
   constructor(private authService: AuthService, private storageService: StorageService, private router: Router) { }
 
   ngOnInit(): void {
     if (this.storageService.isLoggedIn()) {
       this.isLoggedIn = true;
-      this.roles = this.storageService.getUser().roles;
+      this.usuarioData = this.storageService.getUser().username;
     }
   }
 
@@ -43,9 +43,9 @@ export class PrincipalComponent implements OnInit {
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-        this.roles = this.storageService.getUser().roles;
-        //this.reloadPage();
-        this.router.navigate(["/compromissos"])
+        this.usuarioData = this.storageService.getUser().usuarioData;
+        this.reloadPage();
+        this.router.navigate(["/home"])
       },
       error: err => {
         this.errorMessage = err.error.message;
