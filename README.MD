@@ -21,6 +21,5 @@ A agenda digital consiste em uma agenda em que um usuário pode se cadastrar e f
 - Bootstrap
 
 ## Angular
-- ng new agendaDigitalFrontend
-- ng add @angular/material
+- npm install
 - ng serve
