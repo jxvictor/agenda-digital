@@ -1,6 +1,6 @@
 # Agenda Digital
 Repositório focado no desenvolvimento de uma Agenda Digital.
-A agenda digital consiste em uma agenda em que um usuário pode se cadastrar e fazer login no sistema para que possa cadastrar seus compromissos e checá-las no dia a dia.
+A agenda digital consiste em uma agenda em que um usuário pode se cadastrar e fazer login no sistema para que possa cadastrar seus compromissos do dia a dia.
 
 ## Implementado até agora
 - Dependências de validação, jpa, MySQL e lombok.
