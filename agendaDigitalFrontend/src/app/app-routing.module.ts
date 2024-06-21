@@ -6,6 +6,8 @@ import { ReadComponent } from './componentes/views/compromisso/read/read.compone
 import { CreateComponent } from './componentes/views/compromisso/create/create.component';
 import { UsuarioNaoAutenticadoGuard } from './componentes/views/guard/usuario-nao-autenticado.guard';
 import { AuthGuard } from './componentes/views/guard/auth.guard';
+import { DeleteComponent } from './componentes/views/compromisso/delete/delete.component';
+import { UpdateComponent } from './componentes/views/compromisso/update/update.component';
 
 const routes: Routes = [
   { 
@@ -32,6 +34,12 @@ const routes: Routes = [
   },
   { 
     path: 'cadastrar/compromisso', component: CreateComponent, canActivate: [AuthGuard], data: { roles: ['ROLE_USER' , 'ROLE_MOD', 'ROLE_ADMIN'] }
+  },
+  { 
+    path: 'compromissos/delete/:id', component: DeleteComponent, canActivate: [AuthGuard], data: { roles: ['ROLE_USER' , 'ROLE_MOD', 'ROLE_ADMIN'] }
+  },
+  { 
+    path: 'compromissos/update/:id', component: UpdateComponent, canActivate: [AuthGuard], data: { roles: ['ROLE_USER' , 'ROLE_MOD', 'ROLE_ADMIN'] }
   }
   /*{
     path: '', 

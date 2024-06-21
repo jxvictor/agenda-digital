@@ -38,3 +38,9 @@ form{
 input{
     margin-bottom: 15px;
 }
+
+.textoRegistrar{
+  font-size: 16px;
+  font-family: 'Times New Roman', Times, serif;
+  color: blue;
+}

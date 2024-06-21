@@ -1,0 +1,23 @@
+<form>
+    <h1>DELETANDO CCOMPROMISSO</h1>
+  
+    <mat-form-field class="form">
+        <mat-label>Nome Compromisso</mat-label>
+        <input matInput [(ngModel)]="compromisso.nome" type="text" name="nome" disabled>
+    </mat-form-field>
+    <mat-form-field class="form">
+        <mat-label>Data Início</mat-label>
+        <input matInput [(ngModel)]="compromisso.inicio" type="datetime" name="inicio" disabled>
+    </mat-form-field>
+    <mat-form-field class="form">
+        <mat-label>Data Fim</mat-label>
+        <input matInput [(ngModel)]="compromisso.fim" type="datetime" name="fim" disabled>
+    </mat-form-field>
+  
+    <div class="buttons">
+        <button (click)="deleteCompromisso()" class="mat-elevation-z8" mat-raised-button color="accent"> DELETAR </button>
+        <button (click)="cancel()" class="mat-elevation-z8" mat-raised-button color="warn"> CANCELAR </button>
+    </div>
+  
+  </form>
+  

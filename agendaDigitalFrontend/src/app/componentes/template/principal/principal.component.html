@@ -15,6 +15,8 @@
             [ngClass]="{ 'is-invalid': f.submitted && password.errors }" />
           <mat-error *ngIf="password.errors && f.submitted">Password é requirido</mat-error>
         </mat-form-field>
+
+        <p class="textoRegistrar" (click)="registrar()">Clique aqui para registrar-se</p>
   
         <div class="form-group">
           <button mat-raised-button color="primary" class="btn btn-primary btn-block">

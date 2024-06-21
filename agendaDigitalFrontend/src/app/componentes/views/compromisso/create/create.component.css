@@ -1,13 +1,15 @@
-form{
-    width: 500px;
-    margin: 30px auto;
-    text-align: center;
+.container{
+    max-width: 400px !important;
+    padding: 40px 40px;
 }
+label {
+    display: block;
+    margin-top: 10px;
+  }
 
-input{
+  input{
     margin-bottom: 15px;
 }
-
-input[type="button"]{
-    margin-right: 10px;
+button{
+    margin: 4px;
 }

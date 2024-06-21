@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Compromisso } from 'src/app/componentes/model/Compromisso';
 import { Page } from 'src/app/componentes/model/page.model';
 import { CompromissoService } from 'src/app/componentes/service/compromisso.service';
+import { StorageService } from 'src/app/componentes/service/storage.service';
 
 @Component({
   selector: 'app-read',
@@ -23,7 +24,8 @@ export class ReadComponent {
 
   constructor(private service: CompromissoService,
     private router: Router,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private storageService: StorageService // Inject the StorageService
   ){}
 
   ngOnInit(){
@@ -43,6 +45,7 @@ export class ReadComponent {
       this.compromissos = this.page.content;
     });
   }
+  
   onPaginateChange(event: PageEvent){
     let page = event.pageIndex;
     let size = event.pageSize;
@@ -56,14 +59,17 @@ export class ReadComponent {
 
   sortData(column: string): void {
     const sortDirection = this.isAscendingOrder ? 'asc' : 'desc';
-
-    // Add the sorting logic here based on the column and direction
+    
     const sort = `${column},${sortDirection}`;
 
     this.pageCompromissos(this.pageEvent.pageIndex, this.pageEvent.pageSize, sort);
 
     // Toggle the sorting order for the next click
     this.isAscendingOrder = !this.isAscendingOrder;
+  }
+
+  create(){
+    this.router.navigate(['cadastrar/compromisso'])
   }
 
 }

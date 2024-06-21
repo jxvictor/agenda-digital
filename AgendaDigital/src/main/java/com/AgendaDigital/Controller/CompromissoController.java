@@ -2,12 +2,15 @@ package com.AgendaDigital.Controller;
 
 import com.AgendaDigital.Model.Compromisso;
 import com.AgendaDigital.Service.CompromissoService;
+import com.AgendaDigital.Service.UsuarioService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,6 +23,9 @@ public class CompromissoController {
 
     @Autowired
     CompromissoService compromissoService;
+
+    @Autowired
+    UsuarioService usuarioService;
 
     @GetMapping("/obterTodos")
     public ResponseEntity<List<Compromisso>> obterTodos(){
@@ -56,6 +62,7 @@ public class CompromissoController {
         }
     }
 
+
     @GetMapping("/{id}")
     public ResponseEntity<Optional<Compromisso>> obterPorId(@PathVariable Long id){
         try {
@@ -68,19 +75,24 @@ public class CompromissoController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Void> editar(@PathVariable(value="id") Long id, @RequestBody @Valid Compromisso compromisso) {
-        Optional<Compromisso> us = compromissoService.findById(id);
-        try
-        {
-            compromisso.setNome(us.get().getNome());
-            compromisso.setInicio(us.get().getInicio());
-            compromisso.setFim(us.get().getFim());
-            compromissoService.save(compromisso);
-            return ResponseEntity.ok().build();
-        }
-        catch(Exception e) {
+        try {
+            Optional<Compromisso> compromissoExistente = compromissoService.findById(id);
+            if (compromissoExistente.isPresent()) {
+                Compromisso compromissoAtualizado = compromissoExistente.get();
+                compromissoAtualizado.setNome(compromisso.getNome());
+                compromissoAtualizado.setInicio(compromisso.getInicio());
+                compromissoAtualizado.setFim(compromisso.getFim());
+                compromissoAtualizado.setUsuario(compromisso.getUsuario());
+                compromissoService.save(compromissoAtualizado);
+                return ResponseEntity.ok().build();
+            } else {
+                return ResponseEntity.notFound().build();
+            }
+        } catch(Exception e) {
             return ResponseEntity.badRequest().build();
         }
     }
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> remover(@PathVariable long id){

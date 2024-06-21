@@ -18,6 +18,11 @@ export class UsuarioService {
     return this.http.post<Usuario>(this.url, usuario);
   }
 
+  findById(id: string): Observable<Usuario> {
+    const url = `${this.url}/${id}`
+    return this.http.get<Usuario>(url);
+  }
+
   mensagem(str: String): void{
     this._snack.open(`${str}`, 'OK', {
       horizontalPosition: 'end',

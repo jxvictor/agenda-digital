@@ -54,6 +54,10 @@ export class PrincipalComponent implements OnInit {
     });
   }
 
+  registrar(): void {
+      this.router.navigate(['register'])
+  }
+
   reloadPage(): void {
     window.location.reload();
   }

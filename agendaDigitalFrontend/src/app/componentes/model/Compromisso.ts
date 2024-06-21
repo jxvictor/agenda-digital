@@ -1,6 +1,9 @@
+import { Usuario } from "./Usuario";
+
 export class Compromisso {
-    id?: number;
+    id?: string;
     nome?: String;
-    inicio?: Date;
-    fim?: Date;
+    inicio?: string;
+    fim?: string;
+    usuario?: Usuario;
 }

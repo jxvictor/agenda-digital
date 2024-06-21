@@ -31,11 +31,7 @@ import org.springframework.web.filter.CorsFilter;
 import java.util.Arrays;
 
 @Configuration
-//@EnableWebSecurity
 @EnableMethodSecurity
-//(securedEnabled = true,
-//jsr250Enabled = true,
-//prePostEnabled = true) // by default
 public class SecurityConfig {
     @Autowired
     UserDetailsServiceImpl userDetailsService;
@@ -82,6 +78,9 @@ public class SecurityConfig {
                         .requestMatchers("/api/usuario/**").permitAll()//hasRole("ADMIN")
                         .requestMatchers(HttpMethod.GET, "/api/compromisso").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/compromisso").permitAll()
+                        .requestMatchers(HttpMethod.DELETE, "/api/compromisso/{id}").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/compromisso/{id}").permitAll()
+                        .requestMatchers(HttpMethod.PUT, "/api/compromisso/{id}").permitAll()
 
 
                         .anyRequest().authenticated()

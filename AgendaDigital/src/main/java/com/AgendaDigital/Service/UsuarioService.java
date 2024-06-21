@@ -1,6 +1,8 @@
 package com.AgendaDigital.Service;
 
+import com.AgendaDigital.Model.Compromisso;
 import com.AgendaDigital.Model.Usuario;
+import com.AgendaDigital.Repository.CompromissoRepository;
 import com.AgendaDigital.Repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -15,6 +17,10 @@ public class UsuarioService {
 
     @Autowired
     UsuarioRepository usuarioRepository;
+
+    @Autowired
+    CompromissoRepository compromissoRepository;
+
     public void save(Usuario usuario) {
         usuarioRepository.save(usuario);
     }
@@ -33,5 +39,6 @@ public class UsuarioService {
     public void remover(Long id) {
         usuarioRepository.deleteById(id);
     }
+
 }
 

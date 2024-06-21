@@ -4,7 +4,7 @@
         <h1>Lista de compromissos cadastrados</h1>
     </div>
     
-    <button class="mat-elevation-z8" mat-raised-button color="primary">ADICIONAR COMPROMISSO</button>
+    <button class="btn btn-primary" (click)="create()">NOVO COMPROMISSO</button>
   
     <div class="mat-elevation-z8 content-table">
         <table class="table" mat-table [dataSource]="compromissos" matSort>

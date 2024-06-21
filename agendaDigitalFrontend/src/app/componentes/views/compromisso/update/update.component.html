@@ -1,23 +1,23 @@
-<div class="container">
-    <h2>Cadastrar Compromisso</h2>
-    <form (ngSubmit)="cadastrar()" #compromissoForm="ngForm">
-      <div class="form-group">
+<form>
+    <h1>ATUALIZANDO COMPROMISSO</h1>
+
+    <div class="form-group">
         <label for="nome">Nome</label>
         <input type="text" class="form-control" id="nome" name="nome" [(ngModel)]="compromisso.nome" required>
-      </div>
-  
-      <div class="form-group">
+    </div>
+
+    <div class="form-group">
         <label for="inicio">Data e Hora Início</label>
         <input type="datetime-local" class="form-control" id="inicio" name="inicio" [(ngModel)]="compromisso.inicio" required>
-      </div>
+    </div>
   
-      <div class="form-group">
+    <div class="form-group">
         <label for="fim">Data e Hora Fim</label>
         <input type="datetime-local" class="form-control" id="fim" name="fim" [(ngModel)]="compromisso.fim" required>
-      </div>
+    </div>
   
-      <button type="submit" class="btn btn-primary" [disabled]="compromissoForm.form.invalid">Cadastrar</button>
-      <button type="button" class="btn btn-secondary" (click)="cancelar()">Cancelar</button>
-    </form>
-  </div>
-  
+    <div class="buttons">
+        <button (click)="update()" class="mat-elevation-z8" mat-stroked-button color="primary"> ATUALIZAR </button>
+        <button (click)="cancel()" class="mat-elevation-z8" mat-stroked-button color="warn"> CANCELAR </button>
+    </div>
+</form>

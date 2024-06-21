@@ -19,6 +19,8 @@ import { UsuarioCreateComponent } from './componentes/views/usuario/usuario-crea
 import { UsuarioReadComponent } from './componentes/views/usuario/usuario-read/usuario-read.component';
 import { CreateComponent } from './componentes/views/compromisso/create/create.component';
 import { ReadComponent } from './componentes/views/compromisso/read/read.component';
+import { DeleteComponent } from './componentes/views/compromisso/delete/delete.component';
+import { UpdateComponent } from './componentes/views/compromisso/update/update.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { ReadComponent } from './componentes/views/compromisso/read/read.compone
     UsuarioCreateComponent,
     UsuarioReadComponent,
     CreateComponent,
-    ReadComponent
+    ReadComponent,
+    DeleteComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,
