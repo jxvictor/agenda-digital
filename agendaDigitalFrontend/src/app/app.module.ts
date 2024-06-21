@@ -21,6 +21,7 @@ import { CreateComponent } from './componentes/views/compromisso/create/create.c
 import { ReadComponent } from './componentes/views/compromisso/read/read.component';
 import { DeleteComponent } from './componentes/views/compromisso/delete/delete.component';
 import { UpdateComponent } from './componentes/views/compromisso/update/update.component';
+import { HeaderComponent } from './componentes/template/header/header.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { UpdateComponent } from './componentes/views/compromisso/update/update.c
     CreateComponent,
     ReadComponent,
     DeleteComponent,
-    UpdateComponent
+    UpdateComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
